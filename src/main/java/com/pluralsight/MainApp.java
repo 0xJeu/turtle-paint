@@ -63,6 +63,7 @@ public class MainApp {
 
         while (true) {
             final Map<String, Color> COLOR_MAP = new HashMap<>();
+            Point location;
 
             {
                 // Initialize the color map
@@ -96,10 +97,15 @@ public class MainApp {
 
             System.out.print("What is the location of the shape (x,y)?:");
             String userResponse = keyboard.nextLine();
-            String [] responseSplit = userResponse.split(Pattern.quote(","));
-            int x = Integer.parseInt(responseSplit[0]);
-            int y = Integer.parseInt(responseSplit[1]);
-            Point location = new Point(x, y);
+            if (userResponse.isEmpty()) {
+                location = new Point(100, -100);
+            } else {
+                String[] responseSplit = userResponse.split(Pattern.quote(","));
+                int x = Integer.parseInt(responseSplit[0]);
+                int y = Integer.parseInt(responseSplit[1]);
+                location = new Point(x, y);
+            }
+
 
             switch (shapeChoice) {
                 case 1:
