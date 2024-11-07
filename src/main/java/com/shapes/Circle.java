@@ -1,13 +1,16 @@
 package com.shapes;
 
-import com.pluralsight.MainApp;
 import com.pluralsight.Turtle;
 
 import java.awt.*;
 
-public class Circle extends Shape{
-    public Circle(Turtle turtle, Point location, Color color, double border) {
+public class Circle extends Shape {
+
+    private double radius;
+
+    public Circle(Turtle turtle, Point location, Color color, double border, double radius) {
         super(turtle, location, color, border);
+        this.radius = radius;
     }
 
     @Override
@@ -24,11 +27,11 @@ public class Circle extends Shape{
 
         turtle.penDown();
 
+        // Need to sub 10 with the user's radius
         for (int i = 0; i < 36; i++) {
-            turtle.forward(10);
+            turtle.forward(radius);
             turtle.turnRight(10);
         }
-
 
 
     }
